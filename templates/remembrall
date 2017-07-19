@@ -1,0 +1,18 @@
+TICKET_PATTERN="([a-zA-Z]{2,}-[0-9]+)"
+ENDS_WITH_TICKET="$TICKET_PATTERN\$"
+STARTS_WITH_TICKET="^$TICKET_PATTERN"
+
+if [[ $2 == 'message' ]]; then
+  current_branch=$(git symbolic-ref --short HEAD)
+  ticket=$([[ $current_branch =~ $ENDS_WITH_TICKET ]] && echo "${BASH_REMATCH[1]}")
+
+  # we are on a ticket branch
+  if [[ ! -z $ticket ]]; then 
+    message=$(<"$1")
+
+    # not ticket is listed in the commit
+    if [[ ! $message =~ $STARTS_WITH_TICKET ]]; then
+      echo "$ticket $message" > "$1"
+    fi
+  fi
+fi
