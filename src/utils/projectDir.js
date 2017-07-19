@@ -3,20 +3,15 @@
 const findParentDir = require('find-parent-dir').sync;
 
 function findProjectDir() {
-  console.log('me');
-  try {
-    return findParentDir(process.cwd(), '.git');
-  } catch(err) {
-    console.error('error', err);
-    return null;
+  let projectDir;
+
+  projectDir = findParentDir(process.cwd(), '.git');
+
+  if (!projectDir) {
+   projectDir = findParentDir(path.join(__dirname, '..', '..'), '.git');
   }
 
-  try { 
-    return findParentDir(__dirname, '.git');
-  } catch(err) {
-    console.error('error', err);
-    return null;
-  }
+  return projectDir;
 }
 
 module.exports = findProjectDir();
