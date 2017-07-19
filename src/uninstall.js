@@ -7,14 +7,21 @@ const hasRemembrall = require('./utils/hasRemembrall');
 const takeRemembrall = require('./utils/takeRemembrall');
 const { HOOK, HOOK_START, HOOK_END } = require('./config');
 
-if (!projectDir) {
-  return console.log('fatal: Not a git repository (or any of the parent directories): .git');
-}
+try {
+  if (!projectDir) {
+    return console.log('Failed to find git repository. Aborting uninstall.');
+  }
 
-if (!hookExists(HOOK)) {
-  return;
-}
+  if (!hookExists(HOOK)) {
+    console.log(`No ${HOOK} exists. Aborting.`)
+    return;
+  }
 
-if (hasRemembrall(HOOK)) {
-  takeRemembrall(HOOK);
+  if (hasRemembrall(HOOK)) {
+    takeRemembrall(HOOK);
+    console.log('Remembrall uninstalled.');
+  }
+}
+catch(e) {
+  console.log('Uninstall failed.', e);
 }
