@@ -1,0 +1,15 @@
+{
+  "name": "remembrall",
+  "version": "0.0.1",
+  "description": "tbd",
+  "main": "index.js",
+  "scripts": {
+    "install": "node src/install.js",
+    "uninstall": "node src/uninstall.js"
+  },
+  "author": "Avi Goldman <me@avigoldman.com> (http://avigoldman.com)",
+  "license": "ISC",
+  "dependencies": {
+    "find-parent-dir": "^0.3.0"
+  }
+}
