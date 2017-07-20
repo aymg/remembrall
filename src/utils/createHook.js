@@ -9,4 +9,4 @@ module.exports = function createHook(projectDir, hook) {
 
   fs.writeFileSync(hookLocation, fs.readFileSync(HOOK_BASE, 'utf8'));
   fs.chmodSync(hookLocation, parseInt('0755', 8));
-}
+};

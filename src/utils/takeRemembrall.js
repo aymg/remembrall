@@ -11,4 +11,4 @@ module.exports = function takeRemembrall(projectDir, hook) {
   const afterRemembrall = currentContents.substring(currentContents.indexOf(HOOK_END) + HOOK_END.length + 1);
 
   fs.writeFileSync(hookLocation, `${beforeRemembrall}${afterRemembrall}`);
-}
+};
