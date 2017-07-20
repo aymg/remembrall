@@ -1,7 +1,7 @@
 {
   "name": "remembrall",
   "version": "0.0.1",
-  "description": "tbd",
+  "description": "Never forget to add the ticket to the start of your commits",
   "main": "index.js",
   "scripts": {
     "install": "node bin/install.js",
