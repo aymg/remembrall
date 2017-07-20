@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const p = require('./gitPath');
-const { HOOK_START, HOOK_END, REMEMBRALL_TEMPLATE } = require('../config');
+const { HOOK_START, HOOK_END, REMEMBRALL_TEMPLATE } = require('./config');
 
 module.exports = function takeRemembrall(hook) {
   const currentContents = fs.readFileSync(p(hook), 'utf8');

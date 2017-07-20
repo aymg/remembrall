@@ -2,8 +2,7 @@
 
 const fs = require('fs');
 const p = require('./gitPath');
-
-const { HOOK_BASE } = require('../config');
+const { HOOK_BASE } = require('./config');
 
 module.exports = function createHook(hook) {
   const hookPath = p(hook);

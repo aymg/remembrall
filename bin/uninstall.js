@@ -1,11 +1,11 @@
 'use strict';
 
-const projectDir = require('./utils/projectDir');
-const hookExists = require('./utils/hookExists');
-const createHook = require('./utils/createHook');
-const hasRemembrall = require('./utils/hasRemembrall');
-const takeRemembrall = require('./utils/takeRemembrall');
-const { HOOK, HOOK_START, HOOK_END } = require('./config');
+const projectDir = require('../utils/projectDir');
+const hookExists = require('../utils/hookExists');
+const createHook = require('../utils/createHook');
+const hasRemembrall = require('../utils/hasRemembrall');
+const takeRemembrall = require('../utils/takeRemembrall');
+const { HOOK, HOOK_START, HOOK_END } = require('../utils/config');
 
 try {
   if (!projectDir) {
