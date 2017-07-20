@@ -8,7 +8,7 @@
     "uninstall": "node bin/uninstall.js"
   },
   "author": "Avi Goldman <me@avigoldman.com> (http://avigoldman.com)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "find-parent-dir": "^0.3.0",
     "global-modules": "^1.0.0",
