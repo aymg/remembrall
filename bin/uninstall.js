@@ -1,27 +1,14 @@
 'use strict';
 
-const projectDir = require('../utils/projectDir');
-const hookExists = require('../utils/hookExists');
-const createHook = require('../utils/createHook');
-const hasRemembrall = require('../utils/hasRemembrall');
-const takeRemembrall = require('../utils/takeRemembrall');
-const { HOOK, HOOK_START, HOOK_END } = require('../utils/config');
+const path = require('path');
+const findParentDir = require('find-parent-dir').sync;
+const isGlobal = require('../src/utils/isGlobal');
+const uninstall = require('../src/uninstall');
 
-try {
-  if (!projectDir) {
-    return console.log('Failed to find git repository. Aborting uninstall.');
-  }
-
-  if (!hookExists(HOOK)) {
-    console.log(`No ${HOOK} exists. Aborting.`)
-    return;
-  }
-
-  if (hasRemembrall(HOOK)) {
-    takeRemembrall(HOOK);
-    console.log('Remembrall uninstalled.');
-  }
+if (isGlobal()) {
+  return console.log('Uninstalling remembrall CLI');
 }
-catch(e) {
-  console.log('Uninstall failed.', e);
-}
+
+const projectDir = findParentDir(path.join(__dirname, '..', '..'), '.git');
+
+uninstall(projectDir);
