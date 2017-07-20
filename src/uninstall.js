@@ -1,9 +1,10 @@
 'use strict';
 
 const hookExists = require('./utils/hookExists');
-const createHook = require('./utils/createHook');
 const hasRemembrall = require('./utils/hasRemembrall');
 const takeRemembrall = require('./utils/takeRemembrall');
+const isHookEmpty = require('./utils/isHookEmpty');
+const destroyHook = require('./utils/destroyHook');
 const { HOOK, HOOK_START, HOOK_END } = require('./config');
 
 module.exports = function uninstall(projectDir) {
@@ -20,6 +21,11 @@ module.exports = function uninstall(projectDir) {
     if (hasRemembrall(projectDir, HOOK)) {
       takeRemembrall(projectDir, HOOK);
       console.log('Remembrall uninstalled.');
+    }
+
+    if (isHookEmpty(projectDir, HOOK)) {
+      destroyHook(projectDir, HOOK);
+      console.log(`Removed ${HOOK}.`);
     }
   }
   catch(e) {

@@ -4,7 +4,7 @@
   "description": "Never forget to add the ticket to the start of your commits",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node bin/install.js",
+    "install": "node bin/install.js",
     "uninstall": "node bin/uninstall.js"
   },
   "author": "Avi Goldman <me@avigoldman.com> (http://avigoldman.com)",
