@@ -21,7 +21,7 @@ Install it as a global package and hook into any project.
 npm i remembrall -g
 cd my-project
 
-remembrall
+remembrall install
 ```
 
 Then go about your daily routine worry free 🎉
